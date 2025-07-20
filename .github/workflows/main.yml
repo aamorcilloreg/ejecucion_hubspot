@@ -1,0 +1,32 @@
+name: Ejecutar Notebook de HubSpot
+
+on:
+  # --- SECCIÓN DE CALENDARIO DESACTIVADA ---
+  # schedule:
+  #   - cron: '0 17 * * *'
+
+  # Esta línea te permite ejecutarlo manualmente cuando quieras
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Ejecutar el notebook
+        env:
+          HUBSPOT_API_KEY: ${{ secrets.HUBSPOT_API_KEY }}
+        run: |
+          papermill "Actualizar_celular_Hubspot.ipynb" "output.ipynb"
