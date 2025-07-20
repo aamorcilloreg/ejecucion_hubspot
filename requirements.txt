@@ -1,0 +1,8 @@
+requests
+pandas
+numpy
+psutil
+rut-chile
+hubspot-api-client
+papermill
+
