@@ -32,3 +32,10 @@ jobs:
           HUBSPOT_API_KEY: ${{ secrets.HUBSPOT_API_KEY }}
         run: |
           papermill "Actualizar_celular_Hubspot.ipynb" "output.ipynb"
+      # --- AÑADE ESTE NUEVO PASO AQUÍ ---
+      - name: Mostrar el log generado
+        if: always() # Esto hace que el paso se ejecute incluso si el notebook falla
+        run: |
+          echo "--- Contenido del archivo log.txt ---"
+          cat log.txt
+          echo "--- Fin del archivo log.txt ---"
