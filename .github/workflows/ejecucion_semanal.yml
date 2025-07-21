@@ -1,11 +1,13 @@
-name: Ejecutar Notebook de HubSpot
+name: Ejecutar Notebook de HubSpot (Semanal)
 
 on:
-  # --- SECCIÓN DE CALENDARIO DESACTIVADA ---
-  # schedule:
-  #   - cron: '0 17 * * *'
+  # --- SECCIÓN DE CALENDARIO ACTIVADA ---
+  schedule:
+    # Se ejecuta todos los lunes a las 11:00 AM UTC (7:00 AM en Chile)
+    # Formato: Minuto Hora DíaMes Mes DíaSemana
+    - cron: '0 11 * * 1'
 
-  # Esta línea te permite ejecutarlo manualmente cuando quieras
+  # Esta línea te permite seguir ejecutándolo manualmente
   workflow_dispatch:
 
 jobs:
@@ -32,9 +34,9 @@ jobs:
           HUBSPOT_API_KEY: ${{ secrets.HUBSPOT_API_KEY }}
         run: |
           papermill "Actualizar_celular_Hubspot.ipynb" "output.ipynb"
-      # --- AÑADE ESTE NUEVO PASO AQUÍ ---
+      
       - name: Mostrar el log generado
-        if: always() # Esto hace que el paso se ejecute incluso si el notebook falla
+        if: always() # Se ejecuta incluso si el paso anterior falla
         run: |
           echo "--- Contenido del archivo log.txt ---"
           cat log.txt
