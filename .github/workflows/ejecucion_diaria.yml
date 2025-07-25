@@ -13,6 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         notebook:
+          # Aquí puedes activar los notebooks que quieres que se ejecuten diariamente
           # - 'Nuevos_Usuario_Hubspot.ipynb'
           # - 'Nuevos_CargaSuperIntendencia.ipynb'
           - 'Nuevos_EstadoPago_Hubspot.ipynb'
@@ -36,7 +37,9 @@ jobs:
 
       - name: Ejecutar notebook -> ${{ matrix.notebook }}
         env:
+          # CORRECCIÓN: Se añaden TODAS las llaves secretas que tus notebooks puedan necesitar
           HUBSPOT_API_KEY: ${{ secrets.HUBSPOT_API_KEY }}
+          SUPERDESALUD_API_KEY: ${{ secrets.SUPERDESALUD_API_KEY }}
         run: |
           papermill "${{ matrix.notebook }}" "output_${{ matrix.notebook }}"
       
