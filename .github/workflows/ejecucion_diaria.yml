@@ -14,8 +14,8 @@ jobs:
       matrix:
         notebook:
           # - 'Nuevos_Usuario_Hubspot.ipynb'
-          - 'Nuevos_CargaSuperIntendencia.ipynb'
-          # - 'Nuevos_EstadoPago_Hubspot.ipynb'
+          # - 'Nuevos_CargaSuperIntendencia.ipynb'
+          - 'Nuevos_EstadoPago_Hubspot.ipynb'
           # - 'Actualizar_EstadoPago_Morosos_Hubspot.ipynb'
           
     steps:
