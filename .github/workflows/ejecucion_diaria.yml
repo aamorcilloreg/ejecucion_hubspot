@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         notebook:
-          - 'Nuevos_Usuario_Hubspot.ipynb'
+          # - 'Nuevos_Usuario_Hubspot.ipynb'
           - 'Nuevos_CargaSuperintendencia.ipynb'
           # - 'Nuevos_EstadoPago_Hubspot.ipynb'
           # - 'Actualizar_EstadoPago_Morosos_Hubspot.ipynb'
