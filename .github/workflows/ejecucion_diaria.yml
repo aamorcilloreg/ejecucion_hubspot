@@ -14,8 +14,8 @@ jobs:
       matrix:
         notebook:
           # Aquí puedes activar los notebooks que quieres que se ejecuten diariamente
-          # - 'Nuevos_Usuario_Hubspot.ipynb'
-          # - 'Nuevos_CargaSuperIntendencia.ipynb'
+          - 'Nuevos_Usuario_Hubspot.ipynb'
+          - 'Nuevos_CargaSuperIntendencia.ipynb'
           - 'Nuevos_EstadoPago_Hubspot.ipynb'
           # - 'Actualizar_EstadoPago_Morosos_Hubspot.ipynb'
           
